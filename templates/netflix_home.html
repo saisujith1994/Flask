@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Streamify — Home</title>
+    <style>
+      :root{--bg:#141414;--card:#222;--accent:#e50914;--muted:#b3b3b3}
+      *{box-sizing:border-box}
+      body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:#fff}
+      header{display:flex;align-items:center;justify-content:space-between;padding:18px 36px;background:linear-gradient(180deg,rgba(0,0,0,0.6),transparent)}
+      .logo{font-weight:800;color:var(--accent);font-size:1.4rem;letter-spacing:1px}
+      nav{display:flex;gap:18px;align-items:center}
+      nav a{color:#e6e6e6;text-decoration:none;font-size:0.95rem}
+      .profile{display:flex;align-items:center;gap:10px}
+      .avatar{width:36px;height:36px;border-radius:4px;background:#666}
+
+      /* Hero */
+      .hero{position:relative;height:62vh;min-height:420px;display:flex;align-items:flex-end;padding:40px;background-size:cover;background-position:center center}
+      .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(20,20,20,0.95) 80%)}
+      .hero .meta{position:relative;z-index:2;max-width:60%}
+      .title{font-size:3rem;margin:0 0 12px}
+      .desc{color:var(--muted);max-width:60%;line-height:1.4}
+      .hero .cta{margin-top:18px}
+      .btn{background:var(--accent);border:none;padding:12px 20px;border-radius:4px;color:#fff;font-weight:700;cursor:pointer;margin-right:10px}
+      .btn.secondary{background:rgba(109,109,110,0.7)}
+
+      /* Rows */
+      .row{padding:18px 28px}
+      .row h3{margin:0 0 12px;font-size:1.1rem}
+      .posters{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px}
+      .card{flex:0 0 160px;height:240px;background:linear-gradient(180deg,#444,#222);border-radius:6px;overflow:hidden;position:relative;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease}
+      .card img{width:100%;height:100%;object-fit:cover;display:block}
+      .card:hover{transform:scale(1.12);z-index:3;box-shadow:0 8px 26px rgba(0,0,0,0.7)}
+
+      /* small screens */
+      @media (max-width:800px){.title{font-size:2rem}.hero{height:48vh}.card{flex:0 0 120px;height:180px}}
+
+      /* scrollbar tidy */
+      .posters::-webkit-scrollbar{height:10px}
+      .posters::-webkit-scrollbar-thumb{background:#333;border-radius:10px}
+    </style>
+  </head>
+  <body>
+    <header>
+      <div style="display:flex;align-items:center;gap:28px">
+        <div class="logo">SaiSujith Portfolio</div>
+        <nav>
+          <a href="{{ url_for('home') }}">Home</a>
+          <a href="{{ url_for('tech_stack') }}">Tech Stack</a>
+          <a href="#">Work Experience</a>
+          <a href="#">Interests</a>
+          <a href="#">Projects</a>
+        </nav>
+      </div>
+      <div class="profile">
+        <input placeholder="Search" style="background:#222;border:1px solid #333;padding:8px 10px;border-radius:4px;color:#fff" />
+        <div class="avatar"></div>
+      </div>
+    </header>
+
+    <section class="hero" style="background-image:url('https://images.unsplash.com/photo-1517604931442-3b2b6b8d4f40?auto=format&fit=crop&w=1800&q=60')">
+      <div class="meta">
+        <h1 class="title">Featured — The Great Escape</h1>
+        <p class="desc">A thrilling new original series about a group of friends who take an impossible road trip across the country. Bold storytelling, cinematic visuals, and characters you won't forget.</p>
+        <div class="cta">
+          <button class="btn">Play</button>
+          <button class="btn secondary">More Info</button>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <section class="row">
+        <h3>Popular on Streamify</h3>
+        <div class="posters" aria-label="Popular movies">
+          <!-- placeholder posters -->
+          <div class="card"><img src="https://picsum.photos/seed/101/300/450" alt="poster"></div>
+          <div class="card"><img src="https://picsum.photos/seed/102/300/450" alt="poster"></div>
+          <div class="card"><img src="https://picsum.photos/seed/103/300/450" alt="poster"></div>
+          <div class="card"><img src="https://picsum.photos/seed/104/300/450" alt="poster"></div>
+          <div class="card"><img src="https://picsum.photos/seed/105/300/450" alt="poster"></div>
+          <div class="card"><img src="https://picsum.photos/seed/106/300/450" alt="poster"></div>
+        </div>
+      </section>
+
+      <section class="row">
+        <h3>Because you watched Adventure</h3>
+        <div class="posters">
+          <div class="card"><img src="https://picsum.photos/seed/201/300/450" alt="poster"></div>
+          <div class="card"><img src="https://picsum.photos/seed/202/300/450" alt="poster"></div>
+          <div class="card"><img src="https://picsum.photos/seed/203/300/450" alt="poster"></div>
+          <div class="card"><img src="https://picsum.photos/seed/204/300/450" alt="poster"></div>
+          <div class="card"><img src="https://picsum.photos/seed/205/300/450" alt="poster"></div>
+        </div>
+      </section>
+
+      <section class="row">
+        <h3>New Releases</h3>
+        <div class="posters">
+          <div class="card"><img src="https://picsum.photos/seed/301/300/450" alt="poster"></div>
+          <div class="card"><img src="https://picsum.photos/seed/302/300/450" alt="poster"></div>
+          <div class="card"><img src="https://picsum.photos/seed/303/300/450" alt="poster"></div>
+          <div class="card"><img src="https://picsum.photos/seed/304/300/450" alt="poster"></div>
+          <div class="card"><img src="https://picsum.photos/seed/305/300/450" alt="poster"></div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Simple keyboard-play shortcut: press Space to "play"
+      document.addEventListener('keydown', e=>{if(e.code==='Space'){alert('Play — mock action')}})
+    </script>
+  </body>
+</html>
