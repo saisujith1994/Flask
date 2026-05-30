@@ -8,7 +8,7 @@ def home():
 
 @app.route("/Techstack")
 def tech_stack():
-    return render_template("tech_stack.html")
+    return render_template("tech_stack.html")   # it will return the tech_stack page which has all the list of skills
 
 if __name__=="__main__":
     app.run(debug=True)
